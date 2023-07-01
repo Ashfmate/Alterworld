@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
-using Terraria.Chat;
-using Terraria.Chat.Commands;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
 namespace Alterworld.Player_behaviour
 {
+	// Pay no attention to this please, it is for testing only lol (I know that there are already mods for that but idc lol)
 	public class Testing : ModCommand
 	{
 		public override string Command => "give";
