@@ -8,11 +8,13 @@ namespace Alterworld.Player_behaviour
 	// The weapons will have different mana consumptions to accomodate for this change
 	public class ManaRegen : ModPlayer
 	{
+		private int Max_Feed = 5000;
+		public int Cur_Feed = 5000;
 		// This field will be the maximum wait time for when the player starts replenishing mana when sleeping
 		private readonly int slow_recharge_max = 2;
 		// This field hols the current time
 		private int slow_recharge = 0;
-		
+
 		public override void OnConsumeMana(Item item, int manaConsumed) // !!! Will be used later
 		{
 			base.OnConsumeMana(item, manaConsumed);
@@ -33,7 +35,12 @@ namespace Alterworld.Player_behaviour
 		}
 		public override void PostUpdate()
 		{
-			FruitManaRegen.AddManaFeed();
+			Max_Feed += (Cur_Feed <= Max_Feed) ? 1 : 0;
+		}
+		public void HasEaten()
+		{
+			Player.statMana += Cur_Feed / 200;
+			Cur_Feed -= (Cur_Feed >= 1000) ? 1000 : 0; 
 		}
 	}
 }
