@@ -1,4 +1,7 @@
-﻿using Terraria;
+﻿using System.Diagnostics;
+using System.Linq.Expressions;
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Alterworld.Player_behaviour
@@ -14,11 +17,6 @@ namespace Alterworld.Player_behaviour
 		private readonly int slow_recharge_max = 2;
 		// This field hols the current time
 		private int slow_recharge = 0;
-
-		public override void OnConsumeMana(Item item, int manaConsumed) // !!! Will be used later
-		{
-			base.OnConsumeMana(item, manaConsumed);
-		}
 		public override void PreUpdate()
 		{
 			// All mana replenishing fields are changed so that the player does not replenish mana passively
